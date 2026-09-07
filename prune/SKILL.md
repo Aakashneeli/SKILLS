@@ -43,6 +43,11 @@ mechanism, not just static grep.
 
 ## 4. Report
 
+Write the report to `plans/prune.md` in the codebase root (create the `plans/`
+dir if needed). Structure it as a **phased plan** — one phase per pass, ordered
+by risk: each phase groups findings that can ship together, and a phase starts
+only when the previous one is merged and green.
+
 For each finding:
 
 - **What** — the dead/duplicated/complex thing, with file paths
@@ -50,8 +55,9 @@ For each finding:
 - **Removal impact** — what shrinks: LOC, deps, queries, cognitive load
 - **Risks** — what might secretly reference it (dynamic dispatch, external
   consumers, reflection) and how you ruled it out or couldn't
-- **Plan** — the ordered removal step, and what to re-run after it (tests,
-  typecheck, build)
+- **Plan** — the removal step and what to re-run after it (tests, typecheck,
+  build)
 
-End with a cleanup sequence: highest-value, lowest-risk removals first, each
-step independently shippable.
+Phase 1 carries the highest-value, lowest-risk removals; later phases take the
+riskier or more invasive ones. Each phase ends with its own verification gate
+(tests, typecheck, build) before the next begins.
