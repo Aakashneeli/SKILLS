@@ -1,11 +1,7 @@
 ---
 name: prune
-description: >
-  Prune a codebase — hunt dead code, duplicate logic, abandoned files, and
-  technical debt, and deliver a safe removal plan. Use when the user wants to
-  clean up a codebase, remove dead or unused code, find duplicate logic, drop
-  unused components or dependencies, reduce technical debt, simplify
-  implementations, or asks "what can we delete?" or for a maintainability audit.
+disable-model-invocation: true
+description: Prune a codebase — hunt dead code, duplicate logic, abandoned files, and technical debt, and deliver a safe removal plan.
 ---
 
 # Pruning a Codebase
