@@ -1,6 +1,7 @@
 ---
 name: svanai-proposal
 description: Interview for, price, draft, render, and verify an evidence-bound svanAI client proposal.
+disable-model-invocation: true
 ---
 
 # svanAI Proposal
