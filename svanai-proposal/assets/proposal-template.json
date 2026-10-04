@@ -1,0 +1,48 @@
+{
+  "document": {
+    "status": "DRAFT / INDICATIVE",
+    "proposal_type": "INDICATIVE COMMERCIAL PROPOSAL",
+    "version_date": "v1.0 · TBC",
+    "header_label": "INDICATIVE COMMERCIAL PROPOSAL",
+    "currency": "INR",
+    "tax_note": "Exclusive of applicable taxes",
+    "proposal_basis": "TBC",
+    "basis_note": "TBC"
+  },
+  "cover": {
+    "title": "TBC Project",
+    "accent_title": "TBC Outcome",
+    "subtitle": "Prepared exclusively for TBC.",
+    "cards": [
+      {"label": "Prepared for", "value": "TBC", "note": "TBC"},
+      {"label": "Prepared by", "value": "SvanAI Technologies LLP", "note": "Engineering Intelligence · AI Automation"},
+      {"label": "Document status", "value": "Draft & Indicative", "note": "For recipient use only"},
+      {"label": "Version / date", "value": "v1.0 · TBC", "note": ""},
+      {"label": "Currency", "value": "INR", "note": "Exclusive of applicable taxes"},
+      {"label": "Proposal basis", "value": "TBC", "note": "TBC"}
+    ],
+    "note_title": "Indicative commercial note",
+    "note": "TBC"
+  },
+  "pages": [
+    {
+      "number": "01",
+      "title": "Executive Summary",
+      "blocks": [
+        {"type": "text", "lead": true, "text": "TBC"},
+        {
+          "type": "cards",
+          "title": "What you gain",
+          "columns": 4,
+          "items": [
+            {"kicker": "01", "title": "TBC", "body": "TBC"},
+            {"kicker": "02", "title": "TBC", "body": "TBC"},
+            {"kicker": "03", "title": "TBC", "body": "TBC"},
+            {"kicker": "04", "title": "TBC", "body": "TBC"}
+          ]
+        },
+        {"type": "callout", "title": "Business outcome", "text": "TBC"}
+      ]
+    }
+  ]
+}

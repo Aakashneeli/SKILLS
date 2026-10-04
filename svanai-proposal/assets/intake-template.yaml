@@ -1,0 +1,40 @@
+document:
+  status: DRAFT / INDICATIVE
+  branch:
+    engagement: TBC
+    prior_poc: TBC
+    commercial_model: TBC
+    packages: TBC
+    ip_mode: TBC
+  project_name: TBC
+  version: v1.0
+  issue_date: TBC
+  validity_days: 30
+  currency: INR
+  tax_treatment: exclusive
+
+research:
+  consent: TBC
+  sources: []
+
+client: {}
+business: {}
+solution: {}
+scope:
+  in_scope: []
+  out_of_scope: []
+  assumptions: []
+  dependencies: []
+  client_responsibilities: []
+acceptance: {}
+delivery:
+  phases: []
+commercial:
+  pricing_input_file: pricing-input.json
+  selected_client_price: TBC
+  payment_milestones: []
+legal:
+  international_review_required: false
+  approved_changes: []
+evidence_ledger: []
+approvals: []

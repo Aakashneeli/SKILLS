@@ -1,0 +1,7 @@
+interface:
+  display_name: "SvanAI Proposal"
+  short_description: "Create evidence-bound SvanAI proposals"
+  brand_color: "#00E673"
+  default_prompt: "Use $svanai-proposal to interview me and create a branded client proposal."
+policy:
+  allow_implicit_invocation: false
