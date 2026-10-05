@@ -12,11 +12,13 @@ grill-me / grill-with-docs
             ↓
   final feature-wide code-review
             ↓
+       pr (write PR body)
+            ↓
           retro
 
 
 
-improve-codebase-architecture → to-spec → to-tickets → implement → code-review → retro
+improve-codebase-architecture → to-spec → to-tickets → implement → code-review → pr → retro
 
 example workflow for gh issues and local tracker:
 
@@ -103,7 +105,18 @@ Assume you’re adding notification preferences to an app: users should choose w
 
      to-tickets explicitly leaves the parent issue unchanged, so parent closure is a separate completion step.
 
-  6. Run the retrospective after code review
+  6. Write the pull request body
+
+     You invoke:
+
+     > $pr Write the PR body for the reviewed notification preferences changes.
+
+     The skill structures the body as Summary, Evidence (before/after), and Merge Danger
+     (reversibility and blast radius). Use it after code-review and review fixes, when preparing a PR.
+     Creating or updating the PR, pushing the branch, and merging are separate actions to request explicitly.
+     For local-file tracking, this step applies when you share the changes through a GitHub PR.
+
+  7. Run the retrospective after code review
 
      You invoke:
 
@@ -111,7 +124,7 @@ Assume you’re adding notification preferences to an app: users should choose w
 
      Retro reads the session, identifies improvements to navigation, automated checks, coding standards,
      instructions, tools, and information access, then presents candidates in order of severity.
-     This is the final workflow step, after code-review and any review fixes.
+     This is the final workflow step, after code-review, review fixes, and PR preparation when applicable.
 
   Example 2: Files inside your project
 
@@ -186,7 +199,18 @@ Assume you’re adding notification preferences to an app: users should choose w
      If you want these records preserved on GitHub alongside the code, track and commit them. Check whether your
      project ignores .scratch/; local files aren’t automatically versioned.
 
-  6. Run the retrospective after code review
+  6. Write the pull request body
+
+     You invoke:
+
+     > $pr Write the PR body for the reviewed notification preferences changes.
+
+     The skill structures the body as Summary, Evidence (before/after), and Merge Danger
+     (reversibility and blast radius). Use it after code-review and review fixes, when preparing a PR.
+     Creating or updating the PR, pushing the branch, and merging are separate actions to request explicitly.
+     For local-file tracking, this step applies when you share the changes through a GitHub PR.
+
+  7. Run the retrospective after code review
 
      You invoke:
 
@@ -194,7 +218,7 @@ Assume you’re adding notification preferences to an app: users should choose w
 
      Retro reads the session, identifies improvements to navigation, automated checks, coding standards,
      instructions, tools, and information access, then presents candidates in order of severity.
-     This is the final workflow step, after code-review and any review fixes.
+     This is the final workflow step, after code-review, review fixes, and PR preparation when applicable.
 
                      GitHub Issues                  Local files
   ━━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
