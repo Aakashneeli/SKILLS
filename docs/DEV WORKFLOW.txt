@@ -1,0 +1,211 @@
+DEV WORKFLOW:
+
+
+grill-me / grill-with-docs
+            ↓
+         to-spec
+            ↓
+        to-tickets
+            ↓
+  implement each ticket
+  (includes tests + code-review)
+            ↓
+  final feature-wide code-review
+            ↓
+          retro
+
+
+
+improve-codebase-architecture → to-spec → to-tickets → implement → code-review → retro
+
+example workflow for gh issues and local tracker:
+
+Assume you’re adding notification preferences to an app: users should choose whether to receive email and in-app
+  notifications.
+
+  The development process is the same in both workflows. The difference is where the requirements, tickets, and
+  progress live.
+
+  Example 1: GitHub Issues
+
+  1. Discuss the feature
+
+     You invoke:
+
+     > $grill-with-docs Help me design notification preferences.
+
+     The agent asks about defaults, notification categories, existing users, failure cases, and so on. Agreed
+     terminology goes into CONTEXT.md; significant architectural decisions may get ADRs.
+
+  2. Create the parent spec
+
+     You invoke:
+
+     > $to-spec Turn our discussion into a spec.
+
+     The agent explores the relevant code, confirms the testing boundaries with you, then creates an issue in your
+     app’s GitHub repository:
+
+     #100 — Notification preferences
+
+     Problem and solution
+     User stories
+     Implementation decisions
+     Testing decisions
+     Out of scope
+
+     Label: ready-for-agent
+
+     This issue describes the whole feature.
+
+  3. Break the spec into tickets
+
+     You invoke:
+
+     > $to-tickets Break issue #100 into implementation tickets.
+
+     The agent proposes slices and dependencies. After you approve, it creates:
+
+     #101 — Let users change their email notification preference
+            Parent: #100
+            Blocked by: none
+            Includes storage, API, UI, behavior tests
+
+     #102 — Let users change their in-app notification preference
+            Parent: #100
+            Blocked by: #101, if it establishes shared preferences support
+
+     #103 — Apply notification preferences to existing accounts
+            Parent: #100
+            Blocked by: #101 and #102
+
+     Each ticket has its own acceptance criteria. Dependencies should reflect actual prerequisites; they aren’t
+     automatically a linear sequence.
+
+  4. Implement a ready ticket
+
+     You invoke:
+
+     > $implement Implement issue #101, using #100 as the parent spec.
+
+     The updated skill records the starting commit, implements and tests the work, commits it, runs code-review
+     against that starting point, then addresses and commits review fixes.
+
+     The skill doesn’t currently require pushing, opening a PR, or closing the issue. Include those actions in your
+     instruction if you want them:
+
+     > Implement #101, open a PR referencing it, and close the issue when the PR is merged.
+
+  5. Continue and verify the complete feature
+
+     Once #101 is completed, move to tickets whose blockers are satisfied. After all tickets are done, review the
+     entire feature against #100 and close the parent issue when its requirements are fulfilled.
+
+     to-tickets explicitly leaves the parent issue unchanged, so parent closure is a separate completion step.
+
+  6. Run the retrospective after code review
+
+     You invoke:
+
+     > $retro Review this coding session and suggest improvements to the agent environment.
+
+     Retro reads the session, identifies improvements to navigation, automated checks, coding standards,
+     instructions, tools, and information access, then presents candidates in order of severity.
+     This is the final workflow step, after code-review and any review fixes.
+
+  Example 2: Files inside your project
+
+  Your current to-tickets supports local files. Your current to-spec needs an explicit local-output instruction,
+  because it doesn’t define a local spec layout.
+
+  A workable structure would be:
+
+  your-app/
+  ├── CONTEXT.md
+  ├── docs/agents/issue-tracker.md
+  └── .scratch/notification-preferences/
+      ├── spec.md
+      └── issues/
+          ├── 01-email-preference.md
+          ├── 02-in-app-preference.md
+          └── 03-existing-accounts.md
+
+  Here, spec.md is a suggested convention; the issues/ layout is already specified by to-tickets.
+
+  1. Discuss the feature
+
+     Same invocation and discussion as the GitHub workflow:
+
+     > $grill-with-docs Help me design notification preferences.
+
+  2. Save the spec locally
+
+     You invoke:
+
+     > $to-spec Save the spec to .scratch/notification-preferences/spec.md. Use local files as the tracker.
+
+     The resulting document contains the same requirements and testing decisions that would have gone into GitHub
+     issue #100.
+
+  3. Create local tickets
+
+     You invoke:
+
+     > $to-tickets Break .scratch/notification-preferences/spec.md into local tickets.
+
+     After you approve the breakdown, the agent creates one file per ticket. For example:
+
+     # 01: Email notification preference
+
+     **What to build:** Users can enable or disable email
+     notifications, and email delivery respects their choice.
+
+     **Blocked by:** None (can start immediately).
+
+     **Status:** ready-for-agent
+
+     - [ ] Users can save their preference.
+     - [ ] The preference survives a page reload.
+     - [ ] Disabled email notifications are not delivered.
+
+  4. Implement a ticket
+
+     You invoke:
+
+     > $implement Implement .scratch/notification-preferences/issues/01-email-preference.md, using the adjacent spec.
+     > Update the ticket’s status and checkboxes when complete.
+
+     Implementation, testing, commits, and code review work the same way. The extra instruction matters because
+     implement doesn’t currently specify ticket-status updates.
+
+  5. Continue and finish
+
+     Complete unblocked tickets, then review the complete feature against spec.md. Update the local records to show
+     completion.
+
+     If you want these records preserved on GitHub alongside the code, track and commit them. Check whether your
+     project ignores .scratch/; local files aren’t automatically versioned.
+
+  6. Run the retrospective after code review
+
+     You invoke:
+
+     > $retro Review this coding session and suggest improvements to the agent environment.
+
+     Retro reads the session, identifies improvements to navigation, automated checks, coding standards,
+     instructions, tools, and information access, then presents candidates in order of severity.
+     This is the final workflow step, after code-review and any review fixes.
+
+                     GitHub Issues                  Local files
+  ━━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Spec              Parent issue                   spec.md
+  ────────────────  ─────────────────────────────  ───────────────────────────────────────
+   Tickets           Separate issues                Separate Markdown files
+  ────────────────  ─────────────────────────────  ───────────────────────────────────────
+   Dependencies      Issue links/relationships      “Blocked by” text
+  ────────────────  ─────────────────────────────  ───────────────────────────────────────
+   Progress          Issue status and checklists    File status and checklists
+  ────────────────  ─────────────────────────────  ───────────────────────────────────────
+   Collaboration     Convenient shared tracking     Shared through Git commits if tracked
+  ────────────────  ─────────────────────────────  ───────────────────────────────────────
+   Implementation    You invoke implement           You invoke implement
