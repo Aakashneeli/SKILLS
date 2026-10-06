@@ -16,11 +16,11 @@ Use **product critique** for the design standard and **threat modeling** for the
 - Product critique: challenge user value, evidence and success measures; evaluate the journey, hierarchy, accessibility and exceptional states; resolve material tradeoffs.
 - Threat modeling: map assets, actors, trust boundaries and abuse cases; cover applicable control areas; record impact, mitigation, verification and accepted residual risk.
 
-Define the frontier once, replace the two-question example with one reusable question format, and retain facts-versus-decisions and the final confirmation gate. Keep security coverage explicit: a bare “threat-model this” could omit required areas. A coverage checklist is useful instruction, not automatically a no-op.
+Define the frontier once, retain the original two-question round example verbatim, and retain facts-versus-decisions and the final confirmation gate. Keep security coverage explicit: a bare “threat-model this” could omit required areas. A coverage checklist is useful instruction, not automatically a no-op.
 
 ## Verification boundary
 
-The complete skill decreased from 491 to 266 whitespace-delimited words, including frontmatter (45.8%). A static comparison retains the original audience/problem checks, design-state coverage, security control areas, exclusions and residual-risk handling, dependency-based rounds, recommendation format, factual research, user decisions and confirmation gate.
+The initial rewrite decreased the complete skill from 491 to 266 whitespace-delimited words. After restoring the original round example at the user’s request, the current skill is 287 words (41.5% shorter than the original), including frontmatter. A static comparison retains the original audience/problem checks, design-state coverage, security control areas, exclusions and residual-risk handling, dependency-based rounds, recommendation format, factual research, user decisions and confirmation gate.
 
 A smaller word or byte count demonstrates a shorter file only. It does not establish better model reliability, lower latency or measured token savings. Review the old and new behavioral contracts, then try representative sessions: dependent decisions, an interface with error/recovery states, and a multi-tenant feature with sensitive data. Check coverage, recommendations, unresolved risks and the confirmation gate.
 

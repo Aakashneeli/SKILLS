@@ -12,13 +12,20 @@ Apply two lenses to the tree:
 
 Work in **rounds**. The **frontier** contains every decision whose prerequisites are settled. Ask the entire frontier, then wait for answers and recompute it. Defer questions dependent on an unanswered question to a later round.
 
-Number each question and use this format, separated by `---`:
+Format a round like so:
 
 ```
-❓ **Q1** - **<title>**: <question and relevant options>
+❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
 
-➡️ <recommended answer>
+➡️ <your recommended answer>
+
+---
+
+❓ **Q2** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
+
+➡️ <your recommended answer>
 ```
+
 
 **Facts are yours; decisions are the user's.** Dispatch a sub-agent to investigate facts you can look up. Pending research blocks only dependent questions; continue with the remaining frontier. Put decisions to the user and wait.
 
