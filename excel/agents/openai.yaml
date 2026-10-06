@@ -1,0 +1,5 @@
+interface:
+  display_name: "Excel"
+  short_description: "Create and edit spreadsheet files"
+policy:
+  allow_implicit_invocation: false
