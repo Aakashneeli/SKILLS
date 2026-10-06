@@ -5,6 +5,10 @@ description: Grill the user relentlessly about a plan, decision, or idea. Use wh
 
 Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
 
+Hold the user to a **high standard of product design**. Challenge the proposed user problem, target audience, evidence of demand, and success criteria. For product or interface decisions, examine the core journey, information hierarchy, accessibility, interaction clarity, and loading, empty, error, and recovery states. Surface weak assumptions and unnecessary complexity; recommend concrete alternatives and make the user resolve material tradeoffs before treating a design branch as settled.
+
+Conduct a **thorough survey of security implications** as part of the design tree. Map assets, sensitive data, actors, trust boundaries, and plausible abuse cases. Examine applicable risks in authentication, authorization and tenant isolation, input handling, secrets, dependencies and integrations, data storage and retention, logging, and operational access. Ground the survey in the actual design and available code or configuration. For each material risk, identify its impact, proposed mitigation, and how that mitigation will be verified; put unresolved security decisions to the user. Account for each applicable area and explain exclusions. Treat unknowns as open branches until investigated or explicitly accepted with the residual risk understood.
+
 Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.
 
 Format a round like so:
